@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.day-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.exercise {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.exercise-image {
+    width: 80px;
+    height: 80px;
+    background-color: #ddd;
+    margin-right: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+}
+
+.exercise-details {
+    flex-grow: 1;
+}
+
+.exercise-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.set {
+    display: flex;
+    align-items: center;
+}
+
+.set-label {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.muscle-group {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.reset-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.reset-btn:hover {
+    background-color: #c0392b;
+}
+
+.day-reset {
+    text-align: right;
+}
+.timer-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    z-index: 999;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+
+body {
+    padding-top: 140px; /* Prevent content from hiding behind the fixed timer */
+}
+
+
+.timer-display {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.timer-buttons button,
+.timer-controls button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.timer-buttons button:hover,
+.timer-controls button:hover {
+    background-color: #2980b9;
+}
+
