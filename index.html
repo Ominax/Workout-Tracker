@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .day-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .exercise {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .exercise-image {
+            width: 80px;
+            height: 80px;
+            background-color: #ddd;
+            margin-right: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 12px;
+        }
+        .exercise-details {
+            flex-grow: 1;
+        }
+        .exercise-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .sets-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .set {
+            display: flex;
+            align-items: center;
+        }
+        .set-label {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .muscle-group {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        .day-reset {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Workout Tracker</h1>
+    
+    <!-- Day 1: Chest + Triceps + Abs -->
+    <div class="day-container" id="day1">
+        <div class="day-reset">
+            <button class="reset-btn" onclick="resetDay('day1')">Reset Day 1</button>
+        </div>
+        <h2>Day 1: Chest + Triceps + Abs</h2>
+        <p class="muscle-group">Chest</p>
+        
+        <div class="exercise">
+            <img src="machine-chest-fly-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Warmup Machine Flys</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="dumbbell-pullover-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Warmup Pullovers</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="bench-press-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Flat Barbell Bench Press</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (6 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="incline-bench-press-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Incline DB Press (30°)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (6 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="exercise">
+            <img src="decline-bench-press-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Decline Barbell Bench Press</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (6 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="machine-chest-fly-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Machine/Cable Chest Flys</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Triceps</p>
+        
+        <div class="exercise">
+            <img src="tricep-pushdown-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Triceps Pushdown (Straight Bar)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="dumbbell-tricep-extension-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Overhead Triceps Extension</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Abs</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Hanging Leg Raises</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Cable Crunches</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 2: Back + Biceps + Forearms -->
+    <div class="day-container" id="day2">
+        <div class="day-reset">
+            <button class="reset-btn" onclick="resetDay('day2')">Reset Day 2</button>
+        </div>
+        <h2>Day 2: Back + Biceps + Forearms</h2>
+        <p class="muscle-group">Back</p>
+        
+        <div class="exercise">
+            <img src="pull-ups-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Pull-Ups</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">50 reps total:</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="lat-pulldown-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Lat Pulldown</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="t-bar-row-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">T-Bar Row</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Chest-Supported Row</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="straight-arm-pulldown-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Straight-Arm Pulldown</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="exercise">
+            <img src="seated-cable-row-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Seated Row</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+					<div class="set"><span class="set-label">Set 4 (12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Biceps</p>
+        
+        <div class="exercise">
+            <img src="ez-bar-curl-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Barbell Curl</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+					<div class="set"><span class="set-label">Set 4 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+					<div class="set"><span class="set-label">Set 5 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+		<div class="exercise">
+            <img src="preacher-curl-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Preacher Curl</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hammer-curl-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Hammer Curl</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Forearms</p>
+        
+        <div class="exercise">
+            <img src="reverse-barbell-curl-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Reverse Curls (EZ Bar)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Farmers Carry</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (30 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (30 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (30 sec):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 3: Legs + Abs -->
+    <div class="day-container" id="day3">
+        <div class="day-reset">
+            <button class="reset-btn" onclick="resetDay('day3')">Reset Day 3</button>
+        </div>
+        <h2>Day 3: Legs + Abs</h2>
+        <p class="muscle-group">Legs</p>
+        
+        <div class="exercise">
+            <img src="squat-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Back Squat</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 5 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="sled-leg-press-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Leg Press</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="leg-extension-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Leg Extension</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="romanian-deadlift-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Romanian Deadlift (RDL)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="lying-leg-curl-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Seated Leg Curl</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+					<div class="set"><span class="set-label">Set 4 (10-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="seated-calf-raise-400.png" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Seated Calf Raise</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Abs</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Ab Wheel Rollouts</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Plank (Weighted)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (30-45 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (30-45 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (30-45 sec):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 4: Shoulders + Arms + Forearms -->
+    <div class="day-container" id="day4">
+        <div class="day-reset">
+            <button class="reset-btn" onclick="resetDay('day4')">Reset Day 4</button>
+        </div>
+        <h2>Day 4: Shoulders + Arms + Forearms</h2>
+        <p class="muscle-group">Shoulders</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Overhead Press (Barbell)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (6-8 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Lateral Raise (Machine/DB)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 4 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Rear Delt Fly (Machine)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Face Pulls</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Arms</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">EZ Bar Curl</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Skull Crushers</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-10 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Forearms</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Wrist Curls (Behind Back)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (15-20 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Plate Pinches</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (20 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (20 sec):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (20 sec):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 5: Deadlifts + Upper Back + Abs -->
+    <div class="day-container" id="day5">
+        <div class="day-reset">
+            <button class="reset-btn" onclick="resetDay('day5')">Reset Day 5</button>
+        </div>
+        <h2>Day 5: Deadlifts + Upper Back + Abs</h2>
+        <p class="muscle-group">Deadlifts</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Deadlifts (Conventional)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (5 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (5 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (5 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Upper Back</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Pull-Ups</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (AMRAP):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">T-Bar Row</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (8-12 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Shrugs (Smith Machine)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12-15 reps):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="muscle-group">Abs</p>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Hanging Knee Raises (Twist)</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (12/side):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (12/side):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (12/side):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <img src="hqdefault.jpg" class="exercise-image">
+            <div class="exercise-details">
+                <div class="exercise-name">Cable Woodchoppers</div>
+                <div class="sets-container">
+                    <div class="set"><span class="set-label">Set 1 (10/side):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 2 (10/side):</span><input type="checkbox" class="checkbox"></div>
+                    <div class="set"><span class="set-label">Set 3 (10/side):</span><input type="checkbox" class="checkbox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function resetDay(dayId) {
+            const checkboxes = document.querySelectorAll(`#${dayId} .checkbox`);
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            alert(`All Checkboxes For ${dayId} Have Been Reset!`);
+        }
+    </script>
+</body>
+</html>
