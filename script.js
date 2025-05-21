@@ -38,3 +38,14 @@ function updateTimerDisplay(seconds) {
     const secs = String(seconds % 60).padStart(2, '0');
     document.getElementById('timer').textContent = `${mins}:${secs}`;
 }
+function toggleTimerMinimize() {
+    const timerContainer = document.getElementById('timerMini');
+    timerContainer.classList.toggle('minimized');
+    
+    const minimizeBtn = timerContainer.querySelector('.minimize-btn');
+    if (timerContainer.classList.contains('minimized')) {
+      minimizeBtn.textContent = '+';
+    } else {
+      minimizeBtn.textContent = '−';
+    }
+  }
