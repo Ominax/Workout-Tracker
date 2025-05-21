@@ -114,7 +114,37 @@ h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 200px;
     text-align: center;
+    transition: all 0.3s ease;
 }
+.timer-container.minimized {
+    width: 120px;
+    height: 40px;
+    padding: 5px;
+    overflow: hidden;
+  }
+
+  .timer-container.minimized h2 {
+    font-size: 16px;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+
+  .timer-container.minimized .timer-display,
+  .timer-container.minimized .timer-buttons,
+  .timer-container.minimized .timer-controls {
+    display: none;
+  }
+
+  .minimize-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 5px;
+  }
 
 
 body {
@@ -145,4 +175,9 @@ body {
 .timer-controls button:hover {
     background-color: #2980b9;
 }
-
+.minimized{
+    width: 1px;
+    height: 1px:
+    overflow: hidden;
+    transition: all 0.3 ease;
+}
