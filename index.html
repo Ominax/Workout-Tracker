@@ -598,21 +598,22 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <div class="timer-container">
+    <div class="timer-container" id="timerMini">
+    <button class="minimize-btn" onclick="toggleTimerMinimize()">−</button>     
     <h2>Workout Timer</h2>
     <div class="timer-display" id="timer">00:00</div>
-    <div class="timer-buttons">
-        <button onclick="setTimer(120)">2 min</button>
-        <button onclick="setTimer(90)">1 min 30 sec</button>
-        <button onclick="setTimer(60)">1 min</button>
-        <button onclick="setTimer(40)">40 sec</button>
-        <button onclick="setTimer(30)">30 sec</button>
-    </div>
-    <div class="timer-controls">
-        <button onclick="startTimer()">Start</button>
-        <button onclick="resetTimer()">Reset</button>
-    </div>
-</div>
+        <div class="timer-buttons">
+            <button onclick="setTimer(120)">2 min</button>
+            <button onclick="setTimer(90)">1 min 30 sec</button>
+            <button onclick="setTimer(60)">1 min</button>
+            <button onclick="setTimer(40)">40 sec</button>
+            <button onclick="setTimer(30)">30 sec</button>
+        </div>
+        <div class="timer-controls">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+     </div>
 
 </body>
 </html>
